@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      하이하이하이
+      빈커밋 테스트
     </div>
   );
 }

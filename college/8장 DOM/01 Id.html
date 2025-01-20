@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--HTML 태그(Element)를 객체화 한 것이 DOM-->
+    <h2 id="hh">안녕하세요</h2>
+    <h3 id="hhh">반갑습니다</h3>
+
+    <script>
+        let x = document.getElementById("hh");  // id를 이용해서 속성의 태그를 가져오는 방법
+        console.log(x);
+        x.style.color = "red";
+
+        let y = document.getElementById("hhh");
+        y.style.backgroundColor = "pink";
+    </script>
+</body>
+</html>

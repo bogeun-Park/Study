@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1 ~ 100까지 임의의 수 6개를 한번에 출력
+        let arr = new Array(6);
+
+        for(let i=0; i<arr.length; i++) {
+            let r = Math.floor(Math.random()*100) + 1;
+            arr[i] = r;
+        }
+
+        alert(arr);
+    </script>
+</body>
+</html>

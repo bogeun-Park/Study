@@ -1,0 +1,38 @@
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+a {
+    text-decoration: none;
+}
+
+.one {
+    width: 50px;
+    height: 50px;
+    background-color: rebeccapurple;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul .a {
+    list-style: circle;
+}
+
+ul .b {
+    list-style: circle inside url(../../media/네이버.png);  /*이미지가 없으면 circle타입의 마커*/
+}
+
+.d1 div {
+    width: 200px;
+    height: 70px;
+    display: inline-block;
+    border: 2px solid greenyellow;
+}
+
+.d2 div {
+    display: inline;
+    border: 2px solid greenyellow;
+}

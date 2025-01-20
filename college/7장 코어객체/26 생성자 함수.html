@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Book(title, price) {  // 생성자 함수
+            this.title = title;
+            this.price = price;
+
+            this.titlePrint = function() {
+                console.log(this.title);
+            }
+        }
+
+        let book1 = new Book("html", 20000);
+        console.log(book1);
+        book1.titlePrint();
+
+        let book2 = new Book("css", 15000);
+        console.log(book2);
+        book2.titlePrint();
+
+        let arr = new Array();
+        arr[0] = new Book("js", 22000);  // 배열에 생성자 객체를 추가해 나갈 수 있다.
+        console.log(arr);
+    </script>
+</body>
+</html>

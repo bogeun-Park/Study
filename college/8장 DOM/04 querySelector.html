@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="htag">안녕하세요1</h2> 
+    <h2 class="htag">안녕하세요2</h2>
+    <h3 class="htag" id="h3">반갑습니다</h3>
+
+    <script>
+        let id = document.querySelector("#h3");  // #a > #b같은 자식선택자를 이용해 가져오기 가능
+        let tag1 = document.querySelector("h2");  // 앞에 있는 한개만 가져옴
+        let tag2 = document.querySelectorAll("h2");  // 해당하는 모든 것 가져옴
+
+        console.log(id);
+        console.log(tag1);
+        console.log(tag2);
+
+        id.style.color = "red";
+    </script>
+</body>
+</html>

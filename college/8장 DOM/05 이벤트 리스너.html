@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>과일</h2>
+    <button id="b">색상</button>
+    <hr>
+
+    <p>
+        과일종류. <span>사과</span> 두번째 <span>바나나</span> 세번째 <span>토마토</span> 끝
+    </p>
+
+    <script>
+        let button = document.querySelector("#b");
+        let fruit = document.getElementsByTagName("span");  // 배열
+
+        button.onclick = function() {  // 이벤트 리스너
+            for(let i=0; i<fruit.length; i++) {
+                if(fruit[i].style.color == "black")
+                    fruit[i].style.color = "red";
+                else
+                    fruit[i].style.color = "black";
+            }
+        }
+    </script>
+</body>
+</html>

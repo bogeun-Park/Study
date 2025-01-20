@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let colors = ["maroon", "red", "orange", "yellow", "olive", "purple", "lime", "green", "teal"];
+
+        for(let color of colors) {
+            document.write("<div style='background-color: " + color + "'>" + color + "</div>")
+        }
+    </script>
+</body>
+</html>

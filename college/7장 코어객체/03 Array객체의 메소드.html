@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [2, 3, 4];
+        let b = ['a', 'b'];
+
+        let c = a.concat(b);
+        document.write(c + "<br>");
+        
+        c = a.join("#");  // 디폴트가 ','이면서 배멸a의 원소를 연결한 문자열 생성
+        document.write(c + "<br>");
+
+        c = a.reverse();
+        document.write(c + " " + a + "<br>");
+
+        c = a.slice(1,3);
+        document.write(c + "<br>");
+
+        c = a.sort();
+        document.write(c + "<br>");
+
+        c = a.toString();
+        document.write(c + "<br>");
+
+
+        let x = ["asfv", "dfgs", "sdfe", "bfngn", "hrdh"];
+        sortx = x.sort();
+        document.write(sortx + "<br>");
+        
+        reversex = sortx.reverse();  // 배열 x의 역순 정렬
+        document.write(reversex + "<br>");
+
+        let y = [45,67,34,89,1,399,123];
+        document.write(y.sort() + "<br>");  // sort는 문자열 정렬임
+        let sorty = y.sort(function(a,b) {  // 숫자정렬
+            return a-b;
+        })
+        document.write(sorty + "<br>");
+
+        sorty.push(400);
+        document.write(sorty + "<br>");
+
+        sorty.shift();
+        document.write(sorty + "<br>");
+
+        sorty.unshift(15);  // 원소들이 한칸씩 뒤로 밀리면서 원소 추가
+        document.write(sorty + "<br>");
+
+        document.write(sorty.indexOf(123) + "<br>");
+
+        sorty.splice(3, 2);  // 3번째 인덱스부터 시작해서 2개를 지운다.
+        document.write(sorty + "<br>");
+        
+        sorty.splice(1, 3, 999);  // 1번째 인덱스부터 시작해서 3개를 지우고 그자리에 999를 넣는다.
+        document.write(sorty + "<br>");
+    </script>
+</body>
+</html>

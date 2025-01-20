@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="pid">안녕하세요</p>
+    <!--기존태그에 새로운태그 추가-->
+    <script>
+        let newSpan = document.createElement("span");  // span태그 생성
+        newSpan.innerHTML=" 반갑습니다";
+        newSpan.style.color="red";
+        newSpan.style.border="3px solid red";
+
+        let pid = document.getElementById("pid");
+        pid.appendChild(newSpan);  // pid의 마지막 자식으로 newSpan태그 추가
+        //document.body.insertBefore(newSpan,pid);
+    </script>
+</body> 
+</html>

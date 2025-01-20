@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 기본함수
+        function hello1() {
+            alert("안녕하세요1");
+        }
+        hello1();
+
+        // 함수표현식
+        let hello2 = function() {
+            alert("안녕하세요2");
+        };
+        hello2();
+
+        // 즉시실행항수
+        (function() {
+            alert("안녕하세요3");
+        }) ();
+
+        // 화살표함수
+        let hello4 = () => alert("안녕하세요4");
+        hello4();
+    </script>
+</body>
+</html>

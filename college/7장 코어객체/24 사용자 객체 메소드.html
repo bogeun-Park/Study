@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let book = {
+            title : "HTML",
+            author : "박보근",
+            price : 20000,
+
+            titlePrint : function() {
+                console.log(this.title);  // console.log(book.title)도 가능
+            },
+
+            discount : function(rate) {
+                let discountPrice = this.price * (1 - rate/100);
+                console.log("할인가격 : " + discountPrice);
+            }
+        };
+
+        book.pricePrint = function() {  // book객체에 함수 추가
+            console.log(this.price)
+        };
+
+        book.titlePrint();
+        book.pricePrint();
+        book.discount(15);
+    </script>
+</body>
+</html>

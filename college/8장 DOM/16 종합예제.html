@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>정답의 동적 삽입</h2>
+    <hr>
+
+    <p>Q. 거울아 거울아 세상에서 누가 제일 예쁘니?</p>
+    <button id="b1">답보기</button>
+
+    <script>
+        let b1 = document.getElementById("b1");
+        let newP = document.createElement("p");
+
+        let show=1;
+        b1.onclick = function() {
+            if(show==1) {
+                b1.innerHTML="답감추기";
+                newP.innerHTML = "백설공주";
+                newP.style.textDecoration = "underline";
+                document.body.appendChild(newP);
+                show=0;
+            }
+            else {
+                b1.innerHTML="답보기";
+                document.body.removeChild(newP);
+                show=1;
+            }
+        }
+    </script>
+</body>
+</html>

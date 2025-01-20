@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>마우스 이벤트</h3>
+    <hr>
+    
+    <script>
+        let htag = document.getElementsByTagName("h3");
+        htag[0].addEventListener("click", Click);  // 이벤트명, 함수
+        htag[0].addEventListener("mouseover", function() {
+            this.style.backgroundColor="yellow";
+        });
+
+        function Click() {
+            this.style.backgroundColor="green";
+        }
+    </script>
+</body>
+</html>

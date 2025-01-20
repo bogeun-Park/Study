@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼요소</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="username"> 이름 : </label> 
+            <input id="username" type="text" size="10" maxlength="4" value="이름입력" readonly> 
+        </div>
+
+        <div>
+            <label for="userpw"> 비밀번호 : </label>
+            <input id="userpw" type="password" size="10" maxlength="6" required> 
+                                                <!--required는 반드시 입력하라는 의미-->
+        </div>
+
+        <div>
+            <input type="button" value="버튼">
+            
+            <button>버튼2</button>
+
+            <input type="submit" value="제출">
+            <input type="reset" value="리셋">
+        </div>
+
+        <br>
+        
+        <div>
+            <textarea name="" id="" cols="30" rows="10">자기소개하세요</textarea>
+        </div>
+
+        <div>
+            <input type="text" list="cnt">
+            <datalist id="cnt">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+            </datalist>
+            
+            <select name="" id="">
+                <option value="a">aaa</option>
+                <option value="b" selected>bbb</option>
+                <option value="c">ccc</option>
+            </select>
+
+            <!--datalist는 선택 외에도 내가 값을 직접 넣을 수도 있지만 select는 선택밖에 못한다.
+                select에서 bbb를 선택하면 제출은 b(value)가된다. -->
+        </div>
+    </form>
+</body>
+</html>

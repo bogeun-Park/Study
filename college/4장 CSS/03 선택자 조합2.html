@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자2</title>
+    <style>
+        .pfirst em { /* .pfirst를 부모로 가지고 있는 em태그만 적용(자손 선택자) */
+            color: red;
+        }
+
+        span>p { /* 부모가 span인 p태그만 적용 (자식선택자) */
+            font-size: 30px;
+        }
+
+        h3~span { /* 일반 형제선택자 : h3와 같은 라인의 span태그에 영향 */
+            color: chartreuse;
+        }
+
+        h2+h3 {  /* 인접 형제선택자 : h2와 인접한 h3태그에 적용 */
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="head">텍스트 꾸미기</h2>
+    <h3 class="head">텍스트 꾸미기</h3>
+    <h3 class="head">텍스트 꾸미기</h3>
+    <hr>
+
+    <p class="pfirst"> HTML의 태그만으로 기존의
+        워드 프로세서와 같이 들여쓰기, 정렬, 공백, 
+        간격 등과 세밀한 <span>텍스트 <em>제어</em></span>를
+        할 수 없다. 
+    </p>
+    
+    <em>두번째em</em> <br>
+    <span>하이이 <p>내용</p> 잉이 </span>
+
+    <p> 그러나,
+        <strong>스타일 시트</strong>는 이를
+        가능하게 한다. 들여쓰기, 정렬에 대해서
+        알아본다
+    </p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let car = {
+            name : "애마",
+            color : "red",
+            fuelEfii : 7,  // 연비 : 1L로 얼마나 주행가능하나
+
+            put : function(oil) { 
+                return this.fuelEfii * oil;  // oil(L)의 기름을 주유시 갈 수 있는 거리
+            }
+        }
+
+        let x = 4;
+        document.write(x + "L주유하면 " + car.put(x)+ "km 주행 가능");  // xL 주유시 주행할 수 있는 거리
+    </script>
+</body>
+</html>

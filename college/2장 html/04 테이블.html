@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블</title>
+    <style>
+        .ab td {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <caption>표만들기</caption>
+
+        <thead>
+            <tr> <th colspan="2">내용</th> <!-- <th>과목</th> --> </tr>
+        </thead>
+
+        <tfoot>
+            <tr> <th>결과</th> <th>과목수</th> </tr>
+        </tfoot>
+
+        <tbody>
+            <tr> <td rowspan="2">홍길동</td> <td>수학</td> </tr>
+            <tr> <!-- <td>홍길동</td> --> <td>영어</td> </tr>
+            <tr> <td>홍길남</td> <td>체육</td> </tr>
+        </tbody>
+    </table>
+
+    <br>
+    
+    <table class="ab" border="1">
+        <tbody>
+            <tr>
+                <td rowspan="3">A</td>
+                <td colspan="2">B</td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2">C</td>
+                <td>D</td>
+            </tr>
+
+            <tr>
+                <td>E</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

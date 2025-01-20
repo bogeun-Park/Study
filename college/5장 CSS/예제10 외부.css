@@ -1,0 +1,51 @@
+#box {
+    width: 500px;
+    height: 500px;
+    margin: 0px auto;
+    border: 3px solid blue;
+    background-color: antiquewhite;
+    perspective: 80px;  /*원근감 효과 적용*/
+}
+
+#box div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    background-color: aquamarine;
+    margin: 20px auto;
+}
+
+#box div:nth-child(1):hover {
+    transform: translate(30px, 50px);  /*변환*/
+    transform: scale(3,1.5);
+    transform: skew(10deg, 20deg);
+    transform: rotate(50deg);
+    transition-property: transform;  /*전환*/
+    transition-duration: 3s;
+}
+
+#box div:nth-child(2):hover {
+    transform: translateX(100px);
+    transform: scaleX(2);
+    transform: skewX(20deg);
+    transform: rotateX(20deg);  /*원근감 효과가 없으면 변화가 잘 안보임*/
+    background-color: blue;
+    transition-property: background-color;
+    transition-duration: 5s;
+}
+
+#box div:nth-child(3):hover {
+    transform: translateY(100px);
+    transform: scaleX(2);
+    transform: skewY(20deg);
+    transform: rotateY(20deg) translate(100px, 50px);  /*원근감 효과가 없으면 변화가 잘 안보임*/
+    transition-property: transform;
+    transition-delay: 1s;
+}
+
+p span:active {  /*마우스 누를 때 적용*/
+    color: hotpink;
+    font-size: 5em;
+    transition: font-size 3s;
+    transition-timing-function: ease-in;  /*in은 느렸다가 빨라짐, out는 빨랐다가 느려짐*/
+}

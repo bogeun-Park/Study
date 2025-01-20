@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>테두리</button>
+    <button>p개수</button>
+    <hr>
+
+    <p>안녕하세요1</p>
+    <p>안녕하세요2</p>
+    <p>안녕하세요3 <span>반갑습니다</span></p>
+    <p>안녕하세요4</p>
+    <p><span id="sp">C언어</span> 안녕하세요5</p>
+    <p>안녕하세요6</p>
+
+    <script>
+        let button = document.querySelectorAll("button");  // 배열로 가져옴
+
+        button[0].onclick = function() {
+            let sp = document.getElementById("sp");
+            sp.style.border = "2px solid red";
+        }
+
+        button[1].onclick = pCount;
+
+        function pCount() {
+            let p = document.getElementsByTagName("p");  // 배열로 가져옴
+            alert(p.length + "개");
+        }
+    </script>
+</body>
+</html>

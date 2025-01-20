@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 꾸미기</title>
+    <style>
+        .head {
+            width: 200px;
+            height: 150px;
+            color: rgb(100, 113, 87);
+            background-color: bisque;
+            text-indent: 3em;  /*현재 글씨 크기에 맞춰서 들여쓰기가 된다. 2em은 현재 글씨 크기의 x2만큼 들여쓰기*/
+            text-align: right;  /*오른쪽 정렬*/
+            text-decoration: line-through;  /*글씨 줄 긋기*/ 
+            text-decoration-color: blue;
+        }
+        em {
+            color: deeppink;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        #ptag {
+            color: rgb(110, 6, 255);
+            font-size: 25px;
+            font-style: italic;
+            font-weight: 700;
+            }
+        span {
+            width: 200px;
+            height: 150px;
+            /* 인라인 태그는 width, heigth 영향을 받지 않는다. 태그 크기 값 만큼만 영향을 받는다- */
+            background-color: aqua;
+            font:italic 700 50px consolas, sans-serif;  /*단축 프로퍼티 : style, weight, size, family (size와 family는 반드시 지정해야 함)*/
+        }
+        #naver {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h3 class="head">클래스</h3>
+    <hr>
+
+    <p class="head">클래스 선택자 예제1입니다</p>
+
+    <em>클래스 선택자 예제2입니다 Hello</em>
+
+    <p id="ptag">클래스 선택자 예제3입니다 Hello</p>
+
+    <span>test</span> <br>
+
+    <a id="naver" target="_blank" href="http:/www.naver.com">네이버</a>
+</body>
+</html>

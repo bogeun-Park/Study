@@ -1,0 +1,32 @@
+.first {
+    width: 300px;
+    height: 500px;
+    border: 3px solid blue;
+    margin: 40px auto;
+}
+
+div div {
+    width: 100px;
+    height: 100px;
+    border: 2px solid red;
+    margin: 10px auto;
+}
+
+div div:nth-child(1) {
+    background-color:  antiquewhite;
+}
+
+div div:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    background-image: url(../../media/village.jpg);
+    background-position: center center;
+    background-size: cover;  /*auto, contain, cover (cover를 많이 씀)*/
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+div div:nth-child(3) {
+    /*그라데이션 효과 주기 : to top, to bottom, to left, to right, 각도deg*/
+    background: linear-gradient(45deg, blue ,yellow, red);
+}

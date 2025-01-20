@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input태그 속성들</title>
+</head>
+<body>
+    <form action="">
+        <label>
+            색 입력
+            <input type="color" value="#00ff00">
+        </label>
+        <br><br>
+
+        <label>
+            날짜
+            <input type="date" value="2022-12-25" min="2022-12-10" max="2022-12-30">
+        </label>
+        <br><br>
+
+        <label>
+            월
+            <input type="month" value="2022-03">
+        </label>
+        <br><br>
+
+        <label>
+            주
+            <input type="week" value="2022-W50">  <!--주의 초기갑은 대문자W로 설정-->
+        </label>
+        <br><br>
+
+        <label>
+            시간
+            <input type="time" value="21:30">
+        </label>
+        <br><br>
+
+        <label>
+            날짜와 시간
+            <input type="datetime-local" value="2022-09-19T10:42">
+        </label>
+        <br><br>
+
+        <label>
+            스핀버튼
+            <input type="number" min="1.0" max="10.0" step="0.5">
+        </label>
+        <br><br>
+
+        <label>
+            슬라이드 바
+            0<input type="range" min="0" max="100" list="temp">100
+            <datalist id="temp">
+                <option value="0"></option>
+                <!-- <option value="20"></option> -->
+                <option value="40"></option>
+                <!-- <option value="60"></option> -->
+                <option value="80"></option>
+                <option value="100"></option>
+            </datalist>
+        </label>
+        <br><br>
+
+        <label>
+            이메일
+            <input type="email" placeholder="id@host">
+        </label>
+        <br><br>
+
+        <label>
+            주소
+            <input type="url" placeholder="http://">
+        </label>
+        <br><br>
+
+        <label>
+            검색
+            <input type="search" placeholder="검색어입력">
+        </label>
+        <br><br>
+
+        <label>
+            텍스트
+            <input type="text" value="abc">
+        </label>
+        <br><br>
+
+        <label>
+            히든
+            <input type="hidden">
+        </label>
+        <br><br>
+        <!--화면에는 감춰지지만 서버측에는 보내짐-->
+    </form>
+</body>
+</html>

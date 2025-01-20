@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fsize=[10,15,20,25,30,35];
+
+        for(let i in fsize){
+            document.write("<p style='font-size:" + fsize[i] + "px;'>" + fsize[i] + "px</p>");
+        }
+
+        for(let i of fsize){
+            document.write("<p style='font-size:" + i + "px;'>" + i + "px</p>");
+        }
+    </script>
+</body>
+</html>

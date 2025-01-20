@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let s = prompt("출력할 문자와 개수 입력", "문자,숫자").split(",");
+
+        pr(s[0], parseInt(s[1]));
+
+        function pr(a, n) {
+            for(let i=0; i<n; i++) {
+                document.write(a);
+            }
+        }
+    </script>
+</body>
+</html>

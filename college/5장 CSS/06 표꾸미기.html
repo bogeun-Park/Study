@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./예제6 외부.css">
+    <style>
+        table {
+            border: 1px solid blue;
+            border-collapse: collapse;  /*이중 테두리 제거*/
+        }
+
+        th, td {
+            border: 1px dotted red;
+            width: 80px;
+            height: 30px;
+        }
+
+        td {
+            text-align: right;
+            padding: 10px;
+        }
+
+        thead, tfoot {
+            background-color: darkgray;
+            color: yellow;
+        }
+
+        thead th {
+            height: 80px;
+        }
+
+        tbody tr:nth-child(odd) {
+            color: blueviolet;
+            font-weight: 700;
+            background-color: antiquewhite;
+        }
+
+        tbody tr:hover {
+            background-color: aqua;
+        }
+
+        td, tfoot th {
+            border-bottom: 3px solid green; /*아래쪽 테두리만 초록색*/
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>표테스트</caption>
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <th>3</th>
+                <th>4</th>
+            </tr>
+        </tfoot>
+
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

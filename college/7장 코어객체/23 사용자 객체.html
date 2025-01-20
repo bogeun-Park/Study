@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name : "홍길동",
+            age : 22
+        };
+
+        document.write(person.name + " " + person.age + "<br>");
+        document.write(person['name'] + " " + person['age'] + "<br>");
+
+        person.major = "컴공";  // person에 속성 추가
+        document.write(person.major + "<br>");
+
+
+        let student = new Object();  // 비어있는 객체
+        student.name = "박길동";
+        student.tel = "010-1234-5678";
+    </script>
+</body>
+</html>

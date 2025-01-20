@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상셀렉터</title>
+    <style>
+        .naver {
+            text-decoration: none;
+        }
+        .naver:link {  /*방문하지 않은 링크에 스타일 적용*/
+            color: rgb(239, 7, 7);
+        } 
+        .naver:visited {  /*방문한 링크에 스타일 적용*/
+            color: aqua;
+        }
+        .naver:hover {  /*마우스가 올라갈 때 스타일 적용*/
+            color: blue;
+            font-size: 2em;
+        }
+        .naver:active {  /*마우스가 누르고 있는 상황에서 스타일 적용*/
+            color: yellow;
+        }
+        h2:hover {
+            background-color: bisque;
+            color: violet;
+        }
+        p:first-letter {  /*블록 태그의 첫 글자에 스타일 적용(span과 같은 인라인 태그에는 적용 안됨)*/
+            font-size: 3em;
+        }
+        ul>li:nth-child(odd) {  /*홀수 번째 모든 자식 태그에 스타일 적용*/
+            color: crimson;
+            background-color: violet;
+            list-style-type: circle;
+        }
+        .image {
+            width: 300px;
+            height: 150px;
+            background-color: beige;
+            background-image: url(../../media/망고.jpg);
+            background-size: 100px 100px;
+            background-repeat: repeat-x;
+            background-position: center center;
+            /* background: yellow url(../../media/사과.jpg) left bottom/100px 100px no-repeat; */
+        }
+    </style>
+</head>
+<body>
+    <a class="naver" href="https://www.naver.com">네이버</a>
+    <h2>test</h2>
+    <p>안녕하세요</p>
+    <p>안녕하세요2</p>
+    <p>안녕하세요3</p>
+
+    <ul> 목록
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <br>
+    <hr>
+
+    <div class="image">
+        배경
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>이미지회전</h2>
+    <hr>
+
+    <img src="../../media/짜장면.jfif" alt="이미지" width="150px" height="150px">
+
+    <script>
+        let tag = document.getElementsByTagName("img");
+
+        let deg=90;
+        tag[0].onclick = function() {
+            //this.style.width=80+"px";
+            //this.style.height="80px";
+            this.style.rotate=deg+"deg";
+            deg=(deg+90)%360;
+            this.style.scale=1/2;
+        }
+    </script>
+</body>
+</html>

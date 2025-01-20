@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let selfnum = prompt("주민번호 입력", "******-*******");
+
+        let gender;
+        switch(selfnum[7]) {
+            case "1":
+            case "3":
+                gender="남성"
+                break;
+            case "2":
+            case "4":
+                gender="여성"
+                break;
+            default:
+                gender="올바르게 입력하세요"
+                break;
+        }
+
+        document.write("<h3 style= color:red>" + gender + "</h3>");
+    </script>
+</body>
+</html>

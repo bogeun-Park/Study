@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>클릭</button>
+    <hr>
+
+    <ol>
+        <li>점심 <span class="menu" style="visibility: hidden">중식</span></li>
+        <li>저녁 <span class="menu" style="visibility: hidden">피자</span></li>
+    </ol>
+    
+    <script>
+        let button = document.querySelector("button");
+
+        button.onclick = show;
+
+        function show() {
+            let menu = document.getElementsByClassName("menu");
+
+            for(let i=0; i<menu.length; i++) {
+                if(menu[i].style.visibility == "hidden")
+                    menu[i].style.visibility = "visible";
+                else
+                    menu[i].style.visibility = "hidden";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let s = "tom hello";
+        document.write(s + "<br>");
+
+        document.write(s.concat(" love") + "<br>");
+
+        document.write(s.charAt(2) + "<br>");
+
+        document.write(s.indexOf('h') + "<br>");
+
+        document.write(s.toUpperCase() + "<br>");
+
+        document.write(s.slice(2,8) + "<br>");
+
+        let str = s.split(" ");
+        for(let i=0; i<str.length; i++) {
+            document.write(str[i] + " ");
+        }
+        document.write("<br>");
+        
+        document.write(s.substr(5, 3) + "<br>");  // 5에서 3개의 문자
+
+        document.write(s.substring(5, 7) + "<br>");  // 5 ~ 6까지 문자
+
+        s = s.replace("tom", "jhon");  
+        document.write(s + "<br>");
+    </script>
+</body>
+</html>

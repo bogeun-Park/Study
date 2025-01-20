@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>마우스 <span onwheel = 'Wheel(this, event)' style="display:inline-block">이벤트</span>입니다.</p>
+                            <!--이벤트 속성값은 event 고정-->
+    <script>
+        let sp = document.querySelector("span");
+
+        sp.onmouseover = function() {
+            this.style.borderColor = "pink";
+        }
+
+        sp.onmouseout = function() {
+            this.style.borderColor = "gray";
+        }
+
+        let wid = 1;
+        function Wheel(x, e) {
+            x.style.borderStyle = "solid";
+            if(e.wheelDelta > 0) {
+                wid++;
+                x.style.borderWidth = wid + "px";
+            }
+            else {
+                wid--;
+                if(wid < 0) wid = 0;
+                x.style.borderWidth = wid + "px";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>라면끓이는 순서</h2>
+    <hr>
+    <ol id="ol" type="A">
+        <li>물을 끓인다.</li>
+    </ol>
+
+    <script>
+        let ol = document.querySelector("#ol");
+        ol.style.backgroundColor = "pink";
+        
+        ol.onclick = function() {
+            let s = prompt();
+            if(s!=null && s!="") {  // 취소, 빈칸이 아니라면
+                let newLi = document.createElement("li");
+                newLi.innerHTML=s;
+                this.appendChild(newLi);
+            }
+        }
+    </script>
+</body>
+</html>

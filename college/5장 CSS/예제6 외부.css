@@ -1,0 +1,38 @@
+table {
+    border: 1px solid blue;
+    border-collapse: collapse;  /*이중 테두리 제거*/
+}
+
+th, td {
+    border: 1px dotted red;
+    width: 80px;
+    height: 30px;
+}
+
+td {
+    text-align: right;
+    padding: 10px;
+}
+
+thead, tfoot {
+    background-color: darkgray;
+    color: yellow;
+}
+
+thead th {
+    height: 50px;
+}
+
+tbody tr:nth-child(odd) {
+    color: blueviolet;
+    font-weight: 700;
+    background-color: antiquewhite;
+}
+
+tbody tr:hover {
+    background-color: aqua;
+}
+
+td, tfoot th {
+    border-bottom: 3px solid green; /*아래쪽 테두리만 초록색*/
+}

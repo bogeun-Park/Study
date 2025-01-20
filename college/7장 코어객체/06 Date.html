@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let day = new Date();
+        document.write(day + "<br>");
+        document.write(day.toString() + "<br>");
+
+        day = new Date(2020, 11, 25);  // 크리스마스(월은 +1되서 입력된다 0~11월로 생각해서 처리됨)
+        document.write(day + "<br>");  // 즉, 1월(0), 2월(1), ..., 12월(11)
+
+        document.write(day.toDateString() + "<br>"); 
+
+        document.write(day.toTimeString() + "<br>"); 
+
+        document.write(day.toLocaleTimeString() + "<br>"); 
+
+        document.write(day.toLocaleDateString() + "<br>"); 
+
+        document.write(day.toLocaleString() + "<br>"); 
+
+        document.write(day.getDate() + "<br>"); // 일 (1 ~ 31)
+
+        document.write(day.getDay() + "<br>"); // 일(0), 월(1), 화(2), ..., 토(6)
+
+        document.write(day.getTime() + "<br>"); 
+
+        document.write(day.getMonth() + "<br>"); 
+
+        day = new Date();
+        document.write(day + "<br>"); 
+        document.write(day.getSeconds() + "<br>"); 
+
+        document.write(day.getFullYear() + "<br>"); 
+
+        day.setFullYear(2045);  // 년도를 바꿔서 월과 일까지 따라서 바뀜
+        document.write(day + "<br>"); 
+
+        day.setHours(17);
+        document.write(day + "<br>"); 
+
+        day.setMinutes(12);
+        document.write(day + "<br>"); 
+    </script>
+</body>
+</html>

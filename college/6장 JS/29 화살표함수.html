@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 화살표 함수
+        let tri = prompt("밑변, 높이 입력").split(" ");
+
+        let area1 = (w, h) => {
+            console.log(w * h / 2);
+        };
+
+        let area2 = (w, h) => console.log(w * h / 2);
+        // 화살표 함수에서 한줄짜리 함수는 중괄호 생략 가능 
+
+        let area3 = (w, h) => w * h / 2;
+        // let area3 = (w, h) => {return w * h / 2;};
+
+        area1(parseInt(tri[0]), parseInt(tri[1]));
+        area2(parseInt(tri[0]), parseInt(tri[1]));
+        console.log(area3(parseInt(tri[0]), parseInt(tri[1])));
+    </script>
+</body>
+</html>

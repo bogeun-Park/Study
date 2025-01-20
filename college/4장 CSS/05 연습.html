@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./외부 스타일2.css">
+    <style>
+        h2 {
+            color: red;
+        }
+        h3 {
+            background-color: bisque;
+            text-shadow: 2px 2px 3px red;
+        }
+        .st {
+            color: blueviolet;
+            text-decoration: overline;
+            font-weight: 900;
+        }
+        #UL>li {
+            color: brown;
+        }
+        li strong {
+            background-color: chartreuse;
+        }
+        .uull {
+            color: cornflowerblue;
+        }
+        #UL {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: blue;">학번 이름</h2>
+    <hr>
+    <h3>CSS 연습</h3>
+    <hr>
+
+    <div> 
+        <div>2학기 <strong class="st">학습 내용</strong></div>
+        <ul id="UL" class="uull"> 안녕  <!--class보다 id의 우선순위가 더 높다-->
+          <li>HTML5</li>
+          <li><strong>CSS</strong></li>
+          <li>JAVASCRIPT</li>
+        </ul>
+        <div class="f">60점 이하는 F!</div>
+    </div>
+</body>
+</html>

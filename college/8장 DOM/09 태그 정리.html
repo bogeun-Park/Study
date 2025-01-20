@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="isp">안녕1</span>
+    <span class="csp">안녕2</span>
+    <span>안녕3</span>
+
+    <script>
+        let isp = document.getElementById("isp");
+        console.log(isp);
+        isp.style.color="red";
+
+        let csp = document.getElementsByClassName("csp");
+        console.log(csp);
+        csp[0].style.color="blue";
+
+        let tag = document.querySelectorAll("span");
+        console.log(tag);
+        tag[2].style.color="green";
+    </script>
+</body>
+</html>

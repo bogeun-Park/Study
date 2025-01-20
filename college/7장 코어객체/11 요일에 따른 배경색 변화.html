@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 방문 요일에 따라 변하는 배경색 만들기
+        let date = new Date();
+        let w = date.getDay(); 
+        
+        document.write(date + "<br>");
+
+        switch(w) {
+            case 0:  // 일
+                document.body.style.backgroundColor = 'skyblue';
+                break;
+            case 1:  // 월
+                document.body.style.backgroundColor = 'pink';
+                break;
+            case 2:  // 화
+                document.body.style.backgroundColor = 'red';
+                break;
+            case 3:  // 수
+                document.body.style.backgroundColor = 'yello';
+                break;
+            case 4:  // 목
+                document.body.style.backgroundColor = 'gray';
+                break;
+            case 5:  // 금
+                document.body.style.backgroundColor = 'green';
+                break;
+            case 6:  // 토
+                document.body.style.backgroundColor = 'purple';
+                break;
+        }
+    </script>
+</body>
+</html>

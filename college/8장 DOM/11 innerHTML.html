@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 onclick="change()">innerHTML</h2>
+    <hr>
+
+    <img src="../../media/짜장면.jfif" alt="이미지" width="150px" height="150px">
+
+    <script>
+        function change() {
+            let htag = document.getElementsByTagName("h2");
+            console.log(htag[0].innerHTML);
+
+            htag[0].innerHTML="<em>변경합니다</em>";  // 태그 사용시 태그 적용
+            //htag[0].innerText="<em>변경</em>";  // 태그 사용해도 적용x
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        서울<input type="radio" name="city" value="서울">
+        대구<input type="radio" name="city" value="대구">
+        광주<input type="radio" name="city" value="광주">
+        제주<input type="radio" name="city" value="제주">
+        <input id="btn" type="button" value="확인">
+    </form>
+
+    <script>
+        let city = document.getElementsByName("city");  // 라디오나 체크박스의 name을 가져올때 활용
+        console.log(city);
+
+        let b = document.getElementById("btn");
+        b.onclick = function() {
+            let find = null;
+
+            for(let i=0; i<city.length; i++) {
+                if(city[i].checked) {
+                    find = city[i].value;
+                    console.log(city[i].value);
+                }
+            }
+
+            if(find == null) alert("선택하세요.");
+        }
+    </script>
+</body>
+</html>

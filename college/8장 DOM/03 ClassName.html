@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="htag">안녕하세요1</h2>  <!-- class는 동일한 이름 여러개 가능 -->
+    <h2 class="htag">안녕하세요2</h2>
+    <h3 class="htag">반갑습니다</h3>
+
+    <script>
+        let htag = document.getElementsByClassName("htag");  // 배열 형식으로 가져옴
+        console.log(htag);
+
+        let color = ["red", "blue", "green"];
+        for(let i=0; i<htag.length; i++) {
+            htag[i].style.color = color[i];
+        }
+    </script>
+</body>
+</html>

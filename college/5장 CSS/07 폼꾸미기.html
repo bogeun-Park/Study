@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./예제7 외부.css">
+    <style>
+        fieldset {
+            width: 400px;
+        }
+
+        input[type="text"]:focus {
+            background-color: antiquewhite;
+            font-size: 120%;
+        }
+
+        label:hover {
+            color: red;
+        }
+
+        button {
+            width: 100px;
+            height: 70px;
+        }
+
+        label{
+            padding: 5px;
+        }
+
+        label span {
+            display: inline-block;
+            width: 90px;
+            padding: 10px;
+            text-align: right;
+            background: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>그룹</legend>
+
+            <input type="text">
+            <br><br>
+
+            <label>선택1 <input name="sel" type="radio"></label>
+            <label>선택2 <input name="sel" type="radio"></label>
+            <label>선택3 <input name="sel" type="radio"></label>
+            <br><br>
+
+            <button>버튼</button>
+        </fieldset>
+        
+        <br><br>
+
+        <fieldset>
+            <legend>정보 입력</legend>
+            
+            <label>
+                <span>Name</span> <input type="text" placeholder="name">
+            </label>
+            <label>
+                <span>Email</span> <input type="email" placeholder="email">
+            </label>
+            <label>
+                <span>Comment</span> <textarea name="" placeholder="메시지 입력"></textarea>
+            </label>
+            <label>
+                <span></span> <input type="submit" value="제출">
+            </label>
+        </fieldset>
+    </form>
+</body>
+</html>

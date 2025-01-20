@@ -1,0 +1,26 @@
+.first {
+    width: 500px;
+    /* height: 자식의 크기에 맞춰서 자동 설정됨*/  
+    border: 3px solid purple;
+}
+
+.first::after { 
+    /*가상의 비어있는 블록을 만들어서 float지만 clear을 통해 떠있지 않는 것 처럼 보이게 한다.*/
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.first::before {
+    /*필수 요소 같은 것을 표시할 때 쓰임*/
+    content: "*";
+    color: red;
+}
+
+.first div {
+    width: 100px;
+    height: 100px;
+    background-color: beige;
+    margin: 20px;
+    float: right;  /*태그를 오른편에 항상 배치*/
+}

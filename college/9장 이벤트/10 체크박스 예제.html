@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    모자 1만원<input type="checkbox" name="item" value="10000">
+    구두 3만원<input type="checkbox" name="item" value="30000">
+    가방 8만원<input type="checkbox" name="item" value="80000">
+    치킨 2만원<input type="checkbox" name="item" value="20000">
+    <br>
+    <input id="t" type="text" value="0">
+
+    <script>
+        let item = document.getElementsByName("item");
+        let t = document.getElementById("t");
+
+        for(let i=0; i<item.length; i++) {
+            item[i].onclick = Click;
+        }
+
+        let total = 0;
+        function Click() {
+            if(this.checked) total += parseInt(this.value);
+            else total -= parseInt(this.value);
+
+            t.value = total;
+        }
+    </script>
+</body>
+</html>

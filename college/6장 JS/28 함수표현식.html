@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 변수식 함수선언(익명함수, 함수표현식)
+        let tri = prompt("밑변, 높이 입력").split(" ");
+
+        let area = function(w, h) {
+            console.log(w * h / 2);
+        };
+
+        area(parseInt(tri[0]), parseInt(tri[1]));
+        // 변수식 함수 선언은 호이스팅이 적용 안된다. 무조건 변수삭 함수가 먼저 선언이 되어야 한다.
+    </script>
+</body>
+</html>

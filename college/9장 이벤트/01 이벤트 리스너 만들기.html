@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 onclick="Click(this)">마우스 이벤트</h3>
+    <hr>
+
+    <p onmouseover="this.style.color='red'">마우스를 올립니다. 인라인 이용</p>
+    
+    <p onmouseover="colorChange(this)">마우스 올립니다. 함수이용</p>
+
+    <script>
+        function colorChange(x) {
+            x.style.color="red";
+            x.style.backgroundColor="yellow";
+        }
+
+        function Click(x) {
+            x.style.backgroundColor="green";
+        }
+    </script>
+</body>
+</html>

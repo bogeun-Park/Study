@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr1 = ["test", "hello", "hi", "good", "bye", "html"];
+        let arr2 = new Array("안녕", "잘가요", "자바", "문서");
+
+        let n = prompt("잘라낼 개수 입력");
+
+        let hap = [];  // new Array();
+        for(let i=0; i<n; i++) {
+            hap.push(arr1.pop());
+            hap.push(arr2.pop());
+        }
+
+        console.log(hap);
+        console.log(arr1.concat(arr2));
+    </script>
+</body>
+</html>

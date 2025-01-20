@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 변수식(객체)선언 : 변수 = []
+           생성자 함수식 선언 : 변수 = new Array() 
+           
+           생성된 배열의 크기는 고정된게 아니고 동적이다. */
+
+        let plot = [45, 23, 12, 5, 7];
+        for(let i in plot) {
+            for(let j=0; j<plot[i]; j++){
+                document.write("*");
+            }
+
+            document.write("<br>");
+        }
+
+        let week = new Array(6);
+        week[0] = "월";
+        week[1] = "화";
+        week[2] = "수";
+        week[3] = "목";
+        week[4] = "금";
+        week[5] = "토";
+        week[6] = "일";  // 배열의 크기가 늘어남
+        week.length = 10;  // 배열의 크기를 조절 가능
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>자바스크립트 출력</h2>
+
+    <script>
+        alert("안녕하세요");  // 확인
+
+        document.write("test");
+        document.write("<h2>자바스크립트</h2>");
+        document.write("<p>");
+        document.write("p태그입니다");
+        document.write("</p>");
+
+        console.log("출력합니다");
+
+        document.write("<h3>" + "Welcome Home" + "</h3>");
+        document.write("<hr>");
+        document.write("저희 홈 페이지 오신 것을 환영합니다.");
+
+        confirm("확인하세요");  // 확인+취소
+
+        let su = prompt("입력하세요", "0~100");  // 입력까지
+        alert(su);
+        confirm(su)
+        document.write("<h3>" + su + "</h3>");
+        console.log(su);
+
+        console.log(5+"abc");
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./예제8 외부.css">
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 3px solid blue;
+            animation-name: backColor;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        h3 {
+            animation: bomb 5s infinite;
+        }
+
+        @keyframes backColor {
+            from {background-color: pink;}
+            50% {background-color: yellow;}
+            80% {background-color: springgreen;}
+            to {background-color: pink;}  /*처음과 마지막을 맞추면 자연스러움*/
+        }
+
+        @keyframes bomb {
+            0% {font-size: 500%;}
+            50% {font-size: 100%;}
+            100% {font-size: 500%;}
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <h3>꽝!</h3>
+</body>
+</html>

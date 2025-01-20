@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공장 작업</title>
+</head>
+<body>
+    <h1>공장 작업</h1>
+    <script>
+        // 작업 리스트
+    let tasks = [
+   { id: 1, duration: Math.floor(Math.random() * 5) + 1 }, // 1~5초 랜덤
+   { id: 2, duration: Math.floor(Math.random() * 5) + 1 },
+   { id: 3, duration: Math.floor(Math.random() * 5) + 1 },
+   { id: 4, duration: Math.floor(Math.random() * 5) + 1 },
+    ];
+
+    let completedTasks = [];
+    let failedTasks = [];
+    let maxTime = 10; // 공장 가동 제한 시간
+    let isProcessing = false; // 작업 중인지 확인하는 플래그
+    let factoryTimer;
+    let workingTimer;
+
+    // 공장 시작
+    function startFactory() {
+        console.log("공장 가동 시작!");
+
+        // 작업 처리 시작
+        processTask(0);
+
+        // 타이머 시작
+        factoryTimer = setInterval(() => {
+            maxTime--;
+            console.log(`남은 시간: ${maxTime}초`);
+
+            // 시간 초과 처리
+            if (maxTime <= 0) {
+                clearInterval(factoryTimer); // 타이머 종료
+                clearTimeout(workingTimer); 
+                
+                console.error("시간 초과! 남은 작업은 실패 처리됩니다.");
+
+                // 남은 작업 실패 처리
+                for (let i = 0; i < tasks.length; i++) {
+                    if (!tasks[i].completed && !failedTasks.includes(tasks[i].id)) {
+                    failedTasks.push(tasks[i].id);
+                    console.warn(`작업 ${tasks[i].id} 실패! 시간 초과.`);
+                    }
+                }
+
+                // 최종 상태 출력
+                console.log(`완료된 작업: ${completedTasks.length}, 실패한 작업: ${failedTasks.length}`);
+            }
+        }, 1000);
+    }
+
+    // 작업 처리 함수
+    function processTask(index) {
+        if (index >= tasks.length) {
+            console.log("모든 작업이 처리되었습니다.");
+            clearInterval(factoryTimer);
+            return;
+        }
+
+        if (isProcessing) {
+            return; // 이미 작업 중이면 중복 처리 방지
+        }
+
+        const task = tasks[index];
+        const taskStartTime = maxTime; // 작업 시작 시점의 maxTime 저장
+        
+        console.log(`작업 ${task.id} 시작! 예상 소요 시간: ${task.duration}초`);
+
+        isProcessing = true; // 작업 중으로 설정
+
+        workingTimer = setTimeout(() => {
+            if (taskStartTime >= task.duration) {
+                task.completed = true; // 작업 완료
+                completedTasks.push(task.id);
+                console.log(`작업 ${task.id} 완료!`);
+            } else {
+                failedTasks.push(task.id); // 작업 실패
+                console.warn(`작업 ${task.id} 실패! 시간 부족.`);
+            }
+
+            isProcessing = false; // 작업 종료
+            processTask(index + 1); // 다음 작업으로 이동
+        }, task.duration * 1000);
+    }
+
+    // 공장 가동
+    startFactory();
+        
+    </script>
+</body>
+</html>

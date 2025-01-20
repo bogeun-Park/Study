@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>은행 계좌 이체 시뮬레이터</title>
+</head>
+<body>
+  <h1>은행 계좌 이체 시뮬레이터</h1>
+
+  <!-- 계좌 상태 -->
+  <h3>계좌 정보</h3>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>계좌 ID</th>
+        <th>고객 이름</th>
+        <th>잔액</th>
+      </tr>
+    </thead>
+    <tbody id="accountTable">
+      <!-- 계좌 정보가 동적으로 추가됩니다. -->
+    </tbody>
+  </table>
+
+  <!-- 이체 폼 -->
+  <h3>이체 작업</h3>
+  <form id="transferForm">
+    <label for="fromId">출금 계좌 ID:</label>
+    <input type="number" id="fromId">
+    <br><br>
+    <label for="toId">입금 계좌 ID:</label>
+    <input type="number" id="toId">
+    <br><br>
+    <label for="amount">이체 금액:</label>
+    <input type="number" id="amount">
+    <br><br>
+    <button type="submit">이체하기</button>
+  </form>
+
+  <!-- 초기화 버튼 -->
+  <h3>기타 작업</h3>
+  <button id="refreshButton">Refresh</button>
+
+  <!-- 로그 출력 -->
+  <h3>로그</h3>
+  <div id="log"></div>
+
+  <script>
+    // 고객 계좌 데이터
+    let accounts = [
+      { id: 1, name: "Alice", balance: 1000 },
+      { id: 2, name: "Bob", balance: 800 },
+      { id: 3, name: "Charlie", balance: 1200 },
+    ];
+
+    // 초기 계좌 상태 복사본
+    const initialAccounts = JSON.parse(JSON.stringify(accounts));
+
+    // 계좌 테이블 업데이트 함수
+    function updateAccountTable() {
+      const tableBody = document.getElementById("accountTable");
+      tableBody.innerHTML = ""; // 기존 데이터를 초기화
+      accounts.forEach((account) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${account.id}</td>
+          <td>${account.name}</td>
+          <td>${account.balance}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // 로그 추가 함수
+    function addLog(message, isError = false) {
+      const logDiv = document.getElementById("log");
+      const logMessage = document.createElement("p");
+      logMessage.textContent = message;
+      logMessage.style.color = isError ? "red" : "black";
+      logDiv.appendChild(logMessage);
+    }
+
+    // 이체 함수 (오류 포함)
+    function transferFunds(fromId, toId, amount) {
+      addLog(`--- 이체 시작: ${amount}원을 계좌 ${fromId}에서 ${toId}로 ---`);
+
+      const fromAccount = accounts.find((acc) => acc.id === fromId);
+      const toAccount = accounts.find((acc) => acc.id === toId);
+
+      // 오류: 동일 계좌 이체 제한 누락
+      if (!fromAccount || !toAccount) {
+        addLog("유효하지 않은 계좌입니다!", true);
+        return;
+      }
+
+      if (fromAccount && toAccount && fromId === toId) {
+        addLog("자기 자신에게 입금할 수 없습니다.", true);
+        return;
+      }
+
+      if (amount <= 0) {
+        addLog("이체금액은 0보다 커야합니다.", true);
+        return;
+      }
+
+      // const fee = Math.ceil(amount * 0.05); // 수수료 5%
+      const totalDebit = amount;
+
+      if (fromAccount.balance < totalDebit) {
+        addLog(`${fromAccount.name}의 잔액이 부족합니다!`, true);
+        return;
+      }
+
+      fromAccount.balance -= totalDebit; // 출금
+      toAccount.balance += amount;      // 입금
+
+      addLog("이체 완료!");
+      updateAccountTable();
+    }
+
+    // 폼 제출 이벤트 처리
+    document.getElementById("transferForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fromId = parseInt(document.getElementById("fromId").value, 10);
+      const toId = parseInt(document.getElementById("toId").value, 10);
+      const amount = parseFloat(document.getElementById("amount").value);
+
+      // 금액 유효성 검증 누락(오류)
+      transferFunds(fromId, toId, amount);
+    });
+
+    // Refresh 버튼 이벤트 처리
+    document.getElementById("refreshButton").addEventListener("click", () => {
+      // 계좌 상태 초기화
+      //accounts = JSON.parse(JSON.stringify(initialAccounts));
+
+      // 로그 초기화
+      document.getElementById("log").innerHTML = "";
+
+      // 입력 필드 초기화
+      document.getElementById("fromId").value = "";
+      document.getElementById("toId").value = "";
+      document.getElementById("amount").value = "";
+
+      addLog("계좌 정보와 로그, 입력 필드가 초기화되었습니다.");
+      updateAccountTable(); // 테이블 업데이트
+    });
+
+    // 초기 테이블 업데이트
+    updateAccountTable();
+  </script>
+</body>
+</html>

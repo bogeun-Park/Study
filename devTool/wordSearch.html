@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>단어 맞추기 게임</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #hint {
+      font-size: 1.5em;
+      margin: 20px 0;
+    }
+    #timer {
+      font-size: 1.2em;
+      color: red;
+    }
+    #score {
+      font-size: 1.2em;
+      color: green;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>단어 맞추기 게임</h1>
+  <p id="hint">힌트: <span id="wordHint"></span></p>
+  <p>남은 시간: <span id="timer">10</span>초</p>
+  <p>현재 점수: <span id="score">0</span></p>
+  <input type="text" id="userInput" placeholder="단어를 입력하세요">
+  <button id="submitButton">제출</button>
+  <div id="result"></div>
+
+  <script>
+    // 단어 배열 섞기 함수
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [array[i], array[randomIndex]] = [array[randomIndex], array[i]]; // Swap
+      }
+      return array;
+    }
+    
+    // 게임 데이터
+    let words = [
+      { word: "apple", hint: "A fruit that's red or green" },
+      { word: "dog", hint: "A loyal animal that barks" },
+      { word: "car", hint: "A vehicle with four wheels" },
+    ];
+    
+    // 단어 순서를 섞음
+    words = shuffleArray(words);
+    
+    let currentWordIndex = 0;
+    let score = 0;
+    let timeRemaining = 10; // 초 단위 제한 시간
+
+    // DOM 요소 가져오기
+    const wordHint = document.getElementById('wordHint');
+    const timerElement = document.getElementById('timer');
+    const scoreElement = document.getElementById('score');
+    const userInput = document.getElementById('userInput');
+    const submitButton = document.getElementById('submitButton');
+    const result = document.getElementById('result');
+
+    // 단어 표시 (문제: 올바른 DOM 요소 업데이트 누락)
+    wordHint.innerText = words[currentWordIndex].hint; // 오타: 'hit' 대신 'hint'
+
+    // 타이머 동작
+    const timerInterval = setInterval(() => {
+      timeRemaining--;
+      timerElement.innerText = timeRemaining;
+
+      if (timeRemaining === 0) {
+        clearTimeout(timerInterval); // 문제: 함수명이 잘못됨
+        result.textContent = "시간 초과! 게임 종료!";
+        submitButton.disabled = true;
+      }
+    }, 1000);
+
+    // 점수 업데이트 함수
+    function updateScore(isCorrect) {
+      if (isCorrect) {
+        score += 10;
+      } else {
+        score -= 5; // 점수를 잃음
+      }
+      scoreElement.textContent = score;
+    }
+
+    // 단어 확인 로직
+    submitButton.addEventListener('click', () => {
+      const userGuess = userInput.value.trim();
+
+      if (userGuess === words[currentWordIndex].word) {
+        result.textContent = "정답입니다!";
+        updateScore(true);
+      } else {
+        result.textContent = "틀렸습니다. 다시 시도하세요.";
+        updateScore(false);
+      }
+
+      // 다음 단어로 이동
+      currentWordIndex++;
+      if (currentWordIndex >= words.length) {
+        result.textContent = "게임 완료! 최종 점수: " + score;
+        clearInterval(timerInterval);
+        submitButton.disabled = true;
+      } else {
+        wordHint.innerText = words[currentWordIndex].hint;
+        userInput.value = ""; // 입력 초기화
+      }
+    });
+  </script>
+</body>
+</html>

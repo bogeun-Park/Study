@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js Todo App</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      margin: 5px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+    li.completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Vue.js Todo List</h1>
+    <input 
+      type="text" 
+      v-model="newTodo" 
+      @keyup.enter="addTodo" 
+      placeholder="Add a new todo"
+    >
+    <button @click="addTodo">Add</button>
+    <ul>
+      <li 
+        v-for="(todo, index) in todos" 
+        :key="index" 
+        :class="{ completed: todo.completed }"
+      >
+        <span @click="toggleComplete(index)">{{ todo.text }}</span>
+        <button @click="removeTodo(index)">Delete</button>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    // Vue App Initialization
+    const app = Vue.createApp({
+      data() {
+        return {
+          newTodo: '', // 입력된 새 할 일 텍스트
+          todos: []    // 할 일 목록
+        };
+      },
+      methods: {
+        // 새 할 일을 추가
+        addTodo() {
+          if (this.newTodo.trim() === '') return; // 빈 값 무시
+          this.todos.push({
+            text: this.newTodo,
+            completed: false
+          });
+          this.newTodo = ''; // 입력 필드 초기화
+        },
+        // 할 일 완료 상태 토글
+        toggleComplete(index) {
+          this.todos[index].completed = !this.todos[index].completed;
+        },
+        // 할 일을 삭제
+        removeTodo(index) {
+          this.todos.splice(index, 1);
+        }
+      }
+    });
+
+    // Vue App Mounting
+    app.mount('#app');
+  </script>
+</body>
+</html>

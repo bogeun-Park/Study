@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      margin: 5px 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <input id="todoInput" type="text" placeholder="Enter a task">
+  <button id="addTodo">Add</button>
+  <ul id="todoList"></ul>
+
+  <script>
+    const todoInput = document.getElementById('todoInput');
+    const addTodo = document.getElementById('addTodo');
+    const todoList = document.getElementById('todoList');
+
+    // Load todos from LocalStorage
+    const loadTodos = () => {
+      const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+      savedTodos.forEach(todo => addTodoItem(todo));
+    };
+
+    // Add a new todo item
+    const addTodoItem = (text) => {
+      const li = document.createElement('li');
+      li.textContent = text;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', () => {
+        todoList.removeChild(li);
+        saveTodos();
+      });
+
+      li.appendChild(deleteButton);
+      todoList.appendChild(li);
+    };
+
+    // Save todos to LocalStorage
+    const saveTodos = () => {
+      const todos = Array.from(todoList.children).map(li => li.firstChild.textContent);
+      localStorage.setItem('todos', JSON.stringify(todos));
+    };
+
+    addTodo.addEventListener('click', () => {
+      const text = todoInput.value.trim();
+      if (text) {
+        addTodoItem(text);
+        saveTodos();
+        todoInput.value = '';
+      }
+    });
+
+    // Initial load
+    loadTodos();
+  </script>
+</body>
+</html>

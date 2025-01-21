@@ -120,7 +120,7 @@ var app = http.createServer(function (request, response) {
                 template = templateHTML(title, list,
                     `
                     <form action="/update_process" method="post">
-                        <p><input type="text" name="id" value="${title}"></p>
+                        <p><input type="hidden" name="id" value="${title}"></p>
                         <p><input type="text" name="title" placeholder="title" value="${title}"></p>
                         <p>
                             <textarea name="description" placeholder="description">${description}</textarea>
@@ -137,6 +137,26 @@ var app = http.createServer(function (request, response) {
                 response.end(template);
             });
         });
+    }
+    else if (pathname === '/update_process') {
+        var body = '';
+        request.on('data', (data) => {
+            body += data;
+        })
+
+        request.on('end', () => {
+            var post = qs.parse(body);
+            var id = post.id;
+            title = post.title;
+            description = post.description;
+            
+            fs.rename(`./data/${id}`, `./data/${title}`, (err) => {  // 파일명 id -> title로 바꾸기
+                fs.writeFile(`./data/${title}`, description, 'utf8', (err) => {
+                    response.writeHead(302, { location: `/?id=${title}` });  // 302 = 현재 페이지를 옮긴다(리다이렉션)
+                    response.end('sucess');
+                })
+            });
+        })
     }
     else {
         response.writeHead(404);

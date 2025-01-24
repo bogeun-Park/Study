@@ -3,8 +3,8 @@ var fs = require('fs');
 var url = require('url');
 var qs = require('querystring');
 var template = require('./lib/template.js');
-var path = require('path');
-var sanitizeHtml = require('sanitize-html');
+var path = require('path');  // 보안문제 예방
+var sanitizeHtml = require('sanitize-html');  // create시 서버에 js형태로 보내는데 js태그를 걸러 스크립트로 사용되는 것을 방지
 
 var app = http.createServer(function (request, response) {
     var _url = request.url;
@@ -36,7 +36,9 @@ var app = http.createServer(function (request, response) {
                 fs.readFile(`data/${filteredId}`, 'utf-8', (err, description) => {
                     var title = queryData.get('id');
                     var sanitizedTitle = sanitizeHtml(title);
-                    var sanitizeddescription = sanitizeHtml(description);
+                    var sanitizeddescription = sanitizeHtml(description, {
+                        // allowedTags: ['script']  // script라는 태그를 허용한다는 의미
+                    });
                     var list = template.list(filelist);
                     var html = template.html(sanitizedTitle, list,
                         `<h2>${sanitizedTitle}</h2><p>${sanitizeddescription}</p>`,

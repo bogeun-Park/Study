@@ -37,7 +37,7 @@ var app = http.createServer(function (request, response) {
                     var title = queryData.get('id');
                     var sanitizedTitle = sanitizeHtml(title);
                     var sanitizeddescription = sanitizeHtml(description, {
-                        // allowedTags: ['script']  // script라는 태그를 허용한다는 의미
+                        allowedTags: ['script']  // script라는 태그를 허용한다는 의미
                     });
                     var list = template.list(filelist);
                     var html = template.html(sanitizedTitle, list,

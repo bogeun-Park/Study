@@ -1,5 +1,5 @@
 module.exports = {  // 함수를 담은 객체(함수를 리펙토링화 시킴)
-    html: (title, list, body, control) => {
+    html: function(title, list, body, control) {
         return `
             <!doctype html>
             <html>
@@ -16,7 +16,7 @@ module.exports = {  // 함수를 담은 객체(함수를 리펙토링화 시킴)
             </html>
         `
     },
-    list: (filelist) => {
+    list: function(filelist) {
         var list = '<ul>';
         filelist.forEach(file => {
             list += `<li><a href="/?id=${file}">${file}</a></li>`

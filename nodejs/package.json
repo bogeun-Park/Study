@@ -2,6 +2,19 @@
   "dependencies": {
     "-": "^0.0.1",
     "g": "^2.0.1",
-    "pm2": "^5.4.3"
-  }
+    "pm2": "^5.4.3",
+    "sanitize-html": "^2.14.0"
+  },
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

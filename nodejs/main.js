@@ -2,39 +2,9 @@ var http = require('http');
 var fs = require('fs');
 var url = require('url');
 var qs = require('querystring');
-const { describe } = require('pm2');
-
-var template = {  // 함수를 담은 객체(함수를 리펙토링화 시킴)
-    html: (title, list, body, control) => {
-        return `
-            <!doctype html>
-            <html>
-            <head>
-                <title>WEB1 - ${title}</title>
-                <meta charset="utf-8">
-            </head>
-            <body>
-                <h1><a href="/">WEB</a></h1>
-                ${list}
-                ${control}
-                ${body}
-            </body>
-            </html>
-        `
-    },
-    list: (filelist) => {
-        var list = '<ul>';
-        filelist.forEach(file => {
-            list += `<li><a href="/?id=${file}">${file}</a></li>`
-        });
-        list += '</ul>';
-
-        return list;
-
-        // for (var i = 0; i < filelist.length; i++)
-        //     list += `<li><a href="?id=${filelist[i]}">${filelist[i]}</a></li>`;
-    }
-}
+var template = require('./lib/template.js');
+var path = require('path');
+var sanitizeHtml = require('sanitize-html');
 
 var app = http.createServer(function (request, response) {
     var _url = request.url;
@@ -60,15 +30,20 @@ var app = http.createServer(function (request, response) {
         }
         else {
             fs.readdir('./data', (err, filelist) => {
-                fs.readFile(`data/${queryData.get('id')}`, 'utf-8', (err, description) => {
+                var filteredId = path.parse(queryData.get('id')).base;
+                // fs.readFile(`data/${queryData.get('id')}`, 'utf-8', (err, description) => {
+                // 파일을 읽을 때 위처럼 읽으면[ex) ../password.js]보안문제가 생김. 그래서 파일을 parse해서 파일base만 추출해야 함
+                fs.readFile(`data/${filteredId}`, 'utf-8', (err, description) => {
                     var title = queryData.get('id');
+                    var sanitizedTitle = sanitizeHtml(title);
+                    var sanitizeddescription = sanitizeHtml(description);
                     var list = template.list(filelist);
-                    var html = template.html(title, list,
-                        `<h2>${title}</h2><p>${description}</p>`,
+                    var html = template.html(sanitizedTitle, list,
+                        `<h2>${sanitizedTitle}</h2><p>${sanitizeddescription}</p>`,
                         `<a href="/create">Create</a>
-                         <a href="/update?id=${title}">Update</a>
+                         <a href="/update?id=${sanitizedTitle}">Update</a>
                          <form action="/delete_process" method="post">
-                            <input type="hidden" name="id" value="${title}">
+                            <input type="hidden" name="id" value="${sanitizedTitle}">
                             <input type="submit" value="Delete">
                          </from>`
                     );
@@ -118,7 +93,8 @@ var app = http.createServer(function (request, response) {
     }
     else if (pathname === '/update') {
         fs.readdir('./data', (err, filelist) => {
-            fs.readFile(`data/${queryData.get('id')}`, 'utf-8', (err, description) => {
+            var filteredId = path.parse(queryData.get('id')).base;
+            fs.readFile(`data/${filteredId}`, 'utf-8', (err, description) => {
                 var title = queryData.get('id');
                 var list = template.list(filelist);
                 var html = template.html(title, list,
@@ -171,8 +147,8 @@ var app = http.createServer(function (request, response) {
         request.on('end', () => {
             var post = qs.parse(body);
             var id = post.id;
-
-            fs.unlink(`./data/${id}`, (err) => {
+            var filteredId = path.parse(id).base;
+            fs.unlink(`./data/${filteredId}`, (err) => {
                 response.writeHead(302, { location: `/` });  // 302 = 현재 페이지를 옮긴다(리다이렉션)
                 response.end('sucess');
             })

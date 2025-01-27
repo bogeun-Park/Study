@@ -37,7 +37,7 @@ var app = http.createServer(function (request, response) {
                     var title = queryData.get('id');
                     var sanitizedTitle = sanitizeHtml(title);
                     var sanitizeddescription = sanitizeHtml(description, {
-                        allowedTags: ['script']  // sanitize로 인해서 원래는 허용 안하지만 옵션을 주어서 script라는 태그를 허용한다는 의미
+                        // allowedTags: ['script']  // sanitize로 인해서 원래는 허용 안하지만 옵션을 주어서 script라는 태그를 허용한다는 의미
                     });
                     var list = template.list(filelist);
                     var html = template.html(sanitizedTitle, list,
@@ -99,20 +99,18 @@ var app = http.createServer(function (request, response) {
             fs.readFile(`data/${filteredId}`, 'utf-8', (err, description) => {
                 var title = queryData.get('id');
                 var list = template.list(filelist);
-                var html = template.html(title, list,
-                    `
-                    <form action="/update_process" method="post">
-                        <p><input type="hidden" name="id" value="${title}"></p>
-                        <p><input type="text" name="title" placeholder="title" value="${title}"></p>
-                        <p>
-                            <textarea name="description" placeholder="description">${description}</textarea>
-                        </p>
-                        <p>
-                            <input type="submit">
-                        </p>
-                    </form>
-                    `,
-                    `<a href="/create">Create</a> <a href="/update?id=${title}">Update</a>`
+                var html = template.html(title, list,`
+                        <form action="/update_process" method="post">
+                            <p><input type="hidden" name="id" value="${title}"></p>
+                            <p><input type="text" name="title" placeholder="title" value="${title}"></p>
+                            <p>
+                                <textarea name="description" placeholder="description">${description}</textarea>
+                            </p>
+                            <p>
+                                <input type="submit">
+                            </p>
+                        </form>
+                    `, `<a href="/create">Create</a> <a href="/update?id=${title}">Update</a>`
                 );
 
                 response.writeHead(200);
@@ -163,3 +161,6 @@ var app = http.createServer(function (request, response) {
 
 });
 app.listen(3000);
+
+// pm2 start main.js --watch --ignore-watch="./data/*" --no-daemon
+// data디렉토리 안에 파일들이 변경되어도 pm2를 껏다 키지 않고 재실행(세션유지지)

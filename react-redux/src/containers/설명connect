@@ -1,0 +1,4 @@
+connect(mapReduxStateToReactProps, mapReduxDispatchToReactProps)(Component)
+mapReduxStateToReactProps : redux의 store가 변경될 때 마다 호출되고 변경된 state=store.getState()가 인자로 전달됨
+mapReduxDispatchToReactProps : redux의 dispatch가 인자로 전달됨
+connect의 첫번째 괄호에 인자가 하나면 mapReduxStateToReactProps로 지정됨

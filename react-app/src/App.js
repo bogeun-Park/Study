@@ -142,6 +142,7 @@ function App() {
       if(topics[i].id === id) {
         title = topics[i].title;
         body = topics[i].body;
+        break;
       }
     }
     content = <Update title={title} body={body} onUpdate={(title, body) => {

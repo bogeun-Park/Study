@@ -1,7 +1,7 @@
 import AddNumber from "../components/AddNumber";
 import { connect } from "react-redux";
 
-export default connect(
+export default connect(  // AddNumber컴포넌트를 감싸는 새로운 컴포넌트
     state => {
         return {
             

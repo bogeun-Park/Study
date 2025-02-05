@@ -9,6 +9,8 @@ var app = http.createServer(async function (request, response) {
     var queryData = new URL('http://localhost:3000' + _url).searchParams;
     var pathname = new URL('http://localhost:3000' + _url).pathname;
 
+    console.log(new URL('http://localhost:3000' + _url));
+
     if (pathname === '/') {
         if (queryData.get('id') === null) {
             topic.home(request, response, connection);

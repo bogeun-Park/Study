@@ -145,7 +145,7 @@ exports.create_process = (request, response, connection) => {
         var post = qs.parse(body);
         connection.execute(`INSERT INTO topic 
                             VALUES (seq_topic.nextval, :title, :description, SYSDATE, :author_id)
-                            RETURNING id INTO :id`,  // id 값을 반환받을 변수 설정` 
+                            RETURNING id INTO :id`,  // id 값을 반환받을 변수 설정
             {
                 title: post.title, 
                 description: post.description, 
@@ -223,7 +223,7 @@ exports.update = (request, response, connection) => {
                             <textarea name="description" placeholder="description">${sanitizeHtml(topic[0].DESCRIPTION)}</textarea>
                         </p>
                         <p>
-                            ${template.authorSelect(authors, sanitizeHtml(topic[0].AUTHOR_ID))}
+                            ${template.authorSelect(authors, Number(sanitizeHtml(topic[0].AUTHOR_ID)))}
                         </p>
                         <p>
                             <input type="submit">

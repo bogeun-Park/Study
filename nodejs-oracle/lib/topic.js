@@ -4,7 +4,7 @@ var template = require('./template.js');
 var sanitizeHtml = require('sanitize-html');
 
 exports.home = (request, response, connection) => {
-    connection.execute(`SELECT * FROM topic`, 
+    connection.execute(`SELECT * FROM topic ORDER BY id`, 
         {}, 
         { outFormat: oracledb.OUT_FORMAT_OBJECT }, 
         (err, topics) => {
@@ -33,7 +33,7 @@ exports.page = (request, response, connection) => {
     var _url = request.url;
     var queryData = new URL('http://localhost:3000' + _url).searchParams;
 
-    connection.execute(`SELECT * FROM topic`, 
+    connection.execute(`SELECT * FROM topic ORDER BY id`, 
         {}, 
         { outFormat: oracledb.OUT_FORMAT_OBJECT }, 
         async (err, topics) => {
@@ -86,7 +86,7 @@ exports.page = (request, response, connection) => {
 }
 
 exports.create = (request, response, connection) => {
-    connection.execute(`SELECT * FROM topic`, 
+    connection.execute(`SELECT * FROM topic ORDER BY id`, 
         {}, 
         { outFormat: oracledb.OUT_FORMAT_OBJECT }, 
         async (err, topics) => {
@@ -100,7 +100,7 @@ exports.create = (request, response, connection) => {
             console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@creating...")
 
             try{
-                var authors = await connection.execute(`SELECT * FROM author`,
+                var authors = await connection.execute(`SELECT * FROM author ORDER BY name`,
                                                     {},
                                                     { outFormat: oracledb.OUT_FORMAT_OBJECT });
             } catch (err) {
@@ -177,7 +177,7 @@ exports.update = (request, response, connection) => {
     var _url = request.url;
     var queryData = new URL('http://localhost:3000' + _url).searchParams;
 
-    connection.execute(`SELECT * FROM topic`, 
+    connection.execute(`SELECT * FROM topic ORDER BY id`, 
         {}, 
         { outFormat: oracledb.OUT_FORMAT_OBJECT }, 
         async (err, topics) => {
